@@ -11,11 +11,21 @@ SQLAlchemy是Python中最有名的ORM工具。
 
 数据库db查看工具SQLiteSpy：https://www.yunqa.de/delphi/products/sqlitespy/index
 
-关于ORM：
+### 1. 关于ORM
 
 全称Object Relational Mapping（对象关系映射）。
 
 特点是操纵Python对象而不是SQL查询，也就是在代码层面考虑的是对象，而不是SQL，体现的是一种程序化思维，这样使得Python程序更加简洁易读。
+
+### 2.ORM框架
+
+| 数据库 |         python         |
+| :----: | :--------------------: |
+|   表   |           类           |
+|   列   |        类的属性        |
+|   行   | 类的实例，字典对象表述 |
+
+字典对象的key对应列，字典对象的value对应值；
 
 具体的实现方式是将数据库表转换为Python类，其中数据列作为属性，数据库操作作为方法。
 
@@ -30,6 +40,8 @@ SQLAlchemy是Python中最有名的ORM工具。
 虽然性能稍稍不及原生SQL，但是操作数据库真的很方便！
 
 ## **二. 使用**
+
+需要安装pymysql ，sqlalchemy，flask-sqlalchemy三个库
 
 概念和数据类型
 
