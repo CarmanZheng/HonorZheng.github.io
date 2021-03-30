@@ -1,7 +1,7 @@
 ---
 title: Bootstrap前端技术
 layout: post
-tags:Flask
+tags: Flask
 categories: ''
 
 ---
