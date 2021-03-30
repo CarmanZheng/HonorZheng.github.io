@@ -1,7 +1,7 @@
 ---
 title: Socket
 layout: post
-tags: Docker_Flask
+tags: Flask
 categories: ''
 
 ---

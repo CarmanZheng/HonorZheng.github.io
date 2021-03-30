@@ -1,7 +1,7 @@
 ---
 title: Bootstrap前端技术
 layout: post
-tags: Docker_Flask
+tags:Flask
 categories: ''
 
 ---
