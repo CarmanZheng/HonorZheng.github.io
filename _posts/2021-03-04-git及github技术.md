@@ -461,3 +461,41 @@ git remote remove origin
 git clone 远程仓库地址
 ```
 
+
+
+
+
+# 坑坑集锦
+
+# 1. fatal: The remote end hung up unexpectedly
+
+本来还算顺利的,有三个项目,前面两个成功了,但是第三个时候,有文件比较大,导致错误,没有上传成功,具体报错如下:
+
+```
+Counting objects: 61350, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (20587/20587), done.
+efatal: The remote end hung up unexpecterror: RPC failed; HTTP 413 curl 22 The requested U
+RL returned error: 413 Request Entity Too Large
+dly
+Writing objects: 100% (61350/61350), 4.32 GiB | 657.00 KiB/s, done.
+Total 61350 (delta 39636), reused 59367 (delta 37653)
+fatal: The remote end hung up unexpectedly
+Everything up-to-date
+```
+
+看到这个的初步感觉是有文件太大无法上传,百度之后找到一个解决方案,直接在配置文件中添加参数即可.
+
+- windows:
+  在 .git/config 文件中加入
+
+  ```
+  [http]
+  postBuffer = 524288000
+  ```
+
+- linux:
+
+  ```
+  git config http.postBuffer 524288000
+  ```
