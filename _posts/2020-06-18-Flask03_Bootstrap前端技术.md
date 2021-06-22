@@ -5,7 +5,44 @@ tags: Flask
 categories: ''
 
 ---
-### Bootstrap前端技术
+## Bootstrap前端技术
+
+​	
+
+```
+bootstrap是一款非常受欢迎的css工具，记住，是css工具；也是非常好用的前端框架。
+bootstrap将样式集成在类中，只需要调用类就能够实现样式的添加
+```
+
+
+
+### 1.网格系统
+
+​	
+
+网格系统通过行【row】和列【column】的组合来创建页面布局：
+
+1. row必须包含在container或者container-fluid的容器中
+2. container-fluid的宽度为100%
+3. col一共有12个，分别用col-\*或者 col-lg-\*来表示
+4. 列之间通过margin、padding来控制列间距
+
+列偏移
+
+1. css中常用margin来实现偏移量，网格系统使用offset来实现
+2. 具体实现的类为 col-lg-offset-2 ，代表向右偏移2等份【实现更加精细化还是得靠margin】
+
+列排序
+
+1. col-X-push-\*和col-X-pull-*可以改变列左右浮动的方向
+
+### 2.排版
+
+
+
+
+
+
 
 #### 
 
