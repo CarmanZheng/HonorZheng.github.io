@@ -52,7 +52,6 @@ Dockerfile相对于镜像，犹如docker-compose.yml相对于项目集群
 2. yml包含三大概念：**Services**、**Networks**、**Volumes**
    一个service代表一个container（这个container可以从docker hub上拉取的image创建也可以用Dockerfile build出来的image创建）
 3. service的启动类似docker run，我们可以给其指定network和volume
-   
 
 ## 3. yml文件的格式与写法
 
@@ -251,7 +250,7 @@ services：
 		networks: 
 			- hello  # 相当于run --network
 			
-	tomcat01： # 服务名称
+	tomcat02： # 服务名称
 		container_name: tomcat02 # 相当于run的 --name
 		image: tomcat:8.0-jre8  #使用那个镜像，相当于 run image
 		ports:		# 指定映射端口，本地docker端口5000：映射外部端口8000; 相当于 run -p
