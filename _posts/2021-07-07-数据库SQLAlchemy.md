@@ -494,3 +494,128 @@ stus = Course.query.get(c_id).students
 
 
 引用链接：https://www.jianshu.com/p/8c038f0134f8
+
+### 四、查询
+
+#### 1.常用的SQLAlchemy查询过滤器
+
+| 过滤器      | 说明                                             |
+| ----------- | ------------------------------------------------ |
+| filter()    | 把过滤器添加到原查询上，返回一个新查询           |
+| filter_by() | 把等值过滤器添加到原查询上，返回一个新查询       |
+| limit       | 使用指定的值限定原查询返回的结果                 |
+| offset()    | 偏移原查询返回的结果，返回一个新查询             |
+| order_by()  | 根据指定条件对原查询结果进行排序，返回一个新查询 |
+| group_by()  | 根据指定条件对原查询结果进行分组，返回一个新查询 |
+
+#### 2.常用的SQLAlchemy查询执行器
+
+| 方法           | 说明                                         |
+| -------------- | -------------------------------------------- |
+| all()          | 以列表形式返回查询的所有结果                 |
+| first()        | 返回查询的第一个结果，如果未查到，返回None   |
+| first_or_404() | 返回查询的第一个结果，如果未查到，返回404    |
+| get()          | 返回指定主键对应的行，如不存在，返回None     |
+| get_or_404()   | 返回指定主键对应的行，如不存在，返回404      |
+| count()        | 返回查询结果的数量                           |
+| paginate()     | 返回一个Paginate对象，它包含指定范围内的结果 |
+
+查询:filter_by精确查询
+
+返回名字等于wang的所有人
+
+```python
+User.query.filter_by(name='wang').all()
+```
+
+first()返回查询到的第一个对象
+
+```python
+User.query.first()
+```
+
+all()返回查询到的所有对象
+
+```python
+User.query.all()
+```
+
+filter模糊查询，返回名字结尾字符为g的所有数据。
+
+```python
+User.query.filter(User.name.endswith('g')).all()
+```
+
+get():参数为主键，如果主键不存在没有返回内容
+
+```python
+User.query.get()
+```
+
+逻辑非，返回名字不等于wang的所有数据
+
+```python
+User.query.filter(User.name!='wang').all()
+```
+
+not_ 相当于取反
+
+```python
+from sqlalchemy import not_
+User.query.filter(not_(User.name=='chen')).all()
+```
+
+逻辑与，需要导入and，返回and()条件满足的所有数据
+
+```python
+from sqlalchemy import and_
+User.query.filter(and_(User.name!='wang',User.email.endswith('163.com'))).all()
+```
+
+逻辑或，需要导入or_
+
+```python
+from sqlalchemy import or_
+User.query.filter(or_(User.name!='wang',User.email.endswith('163.com'))).all()
+```
+
+查询数据后删除
+
+```python
+user = User.query.first()
+db.session.delete(user)
+db.session.commit()
+User.query.all()
+```
+
+更新数据
+
+```python
+user = User.query.first()
+user.name = 'dong'
+db.session.commit()
+User.query.first()
+```
+
+关联查询示例：
+
+> 角色和用户的关系是一对多的关系，一个角色可以有多个用户，一个用户只能属于一个角色。
+
+- 查询角色的所有用户
+
+```python
+#查询roles表id为1的角色
+ro1 = Role.query.get(1)
+#查询该角色的所有用户
+ro1.us.all()
+```
+
+- 查询用户所属角色
+
+```python
+#查询users表id为3的用户
+us1 = User.query.get(3)
+#查询用户属于什么角色
+us1.role
+```
+
