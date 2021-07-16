@@ -1,7 +1,7 @@
 ---
-title: docker命令
+title: docker和docker-compose
 layout: post
-tags: docker
+tags: 部署
 categories: ''
 ---
 
