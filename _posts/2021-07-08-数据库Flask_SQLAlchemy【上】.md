@@ -188,6 +188,9 @@ stu = Student.query.filter(s_name='TTC').first()
 # 主键查询
 stu = Student.query.get(1)  
 
+# 查询所有数据
+stu = Student.query.all() 返回查询到的所有的结果
+
 # 比较查询
 # __lt__ 小于  __le__小于等于   __gt__ 大于  __ge__ 大于等于
 Student.query.filter(Student.s_age.__lt__(16))  # 小于16岁 
