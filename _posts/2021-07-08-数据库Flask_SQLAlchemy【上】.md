@@ -182,7 +182,7 @@ db.session.commit() 		 # 3.提交
 ```python
 # 查
 # 过滤查询
-stu = Student.query.filter(s_name='TTC').first()
+stu = Student.query.filter(Students_name='TTC').first()
 # 如果查询一个不存在的会返回一个None
 
 # 主键查询
