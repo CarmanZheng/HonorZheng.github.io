@@ -45,7 +45,7 @@ if __name__ == '__main__':
 
 ## 二、具体操作实例
 
-### .1 、实例代码
+### 1 、实例代码
 
 ```mysql
 
@@ -208,7 +208,7 @@ page_data = Movie.query.join(Tag,Movie.tag_id == Tag.id).order_by(
 
 
 
-- HTsML中的应用： 
+- HTML中的应用： 
 
   ```html
   {% macro page(data, url) -%}
